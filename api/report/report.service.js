@@ -18,7 +18,7 @@ async function query(params, token) {
         const fields = Object.keys(data[0]);
         const json2csvParser = new Parser({ fields });
         const csv = json2csvParser.parse(data);
-        fs.writeFile("data/res.csv", csv, function(err) {
+        fs.writeFile("data/res.csv", csv, (err) => {
             if(err) {
                 return logger.error(err);
             }
