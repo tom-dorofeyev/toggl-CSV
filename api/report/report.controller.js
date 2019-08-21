@@ -6,7 +6,8 @@ module.exports = {
 
 async function query(req, res) {
     const params = req.query;
-    const { token } = req.body;
+    const { token } = params;
+    delete params.token
     try {
         const report = await reportService.query(params, token)
         res.json(report)
